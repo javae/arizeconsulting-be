@@ -49,8 +49,8 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-20">
         <!-- Logo -->
-        <a href="#" class="text-xl md:text-2xl font-extrabold tracking-tight text-navy">
-          ARIZE
+        <a href="#" class="block">
+          <img src="logo/Arize.svg" alt="Arize Consulting" class="h-8 md:h-10 w-auto">
         </a>
         <!-- Desktop nav -->
         <div class="flex items-center gap-8">
@@ -211,9 +211,7 @@
       <div class="grid gap-12 md:grid-cols-5 items-center">
         <!-- Photo placeholder -->
         <div class="md:col-span-2">
-          <div class="aspect-[4/5] rounded-2xl bg-navy/5 flex items-center justify-center">
-            <span class="text-navy/30 text-sm">Foto Jan</span>
-          </div>
+          <img src="logo/jan.jpg" alt="Jan Vaes" class="aspect-[4/5] rounded-2xl object-cover w-full">
         </div>
         <!-- Bio -->
         <div class="md:col-span-3">
@@ -240,7 +238,7 @@
           Vul het formulier in en ik neem binnen 24 uur contact op.
         </p>
       </div>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="mt-12 max-w-xl mx-auto space-y-5">
+      <form name="contact" method="POST" data-netlify="true" class="mt-12 max-w-xl mx-auto space-y-5">
         <div>
           <label for="naam" class="block text-sm font-medium text-navy/80 mb-1.5">Naam *</label>
           <input type="text" id="naam" name="naam" required
@@ -287,16 +285,15 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex flex-col items-center md:items-start gap-2">
-          <span class="text-xl font-extrabold text-white tracking-tight">ARIZE</span>
-          <span class="text-sm">Consulting</span>
+          <img src="logo/Arize.svg" alt="Arize Consulting" class="h-8 w-auto brightness-0 invert">
         </div>
         <div class="flex flex-col items-center md:items-end gap-2 text-sm">
           <div class="flex items-center gap-4">
             <a href="mailto:jan@arizeconsulting.be" class="hover:text-white transition-colors">jan@arizeconsulting.be</a>
             <span class="text-white/20">|</span>
-            <a href="https://linkedin.com/in/janvaes" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/janvaes/" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
           </div>
-          <p>BTW: BE 0XXX.XXX.XXX</p>
+          <p>BTW: BE 1030.393.980</p>
           <p>&copy; 2026 Arize Consulting</p>
         </div>
       </div>
