@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arize Consulting — AI Readiness Assessment</title>
+  <meta name="description" content="Ontdek waar AI uw bedrijf concreet tijd en geld bespaart. Jan Vaes helpt Vlaamse KMO's met een hands-on AI Readiness Assessment.">
+  <meta property="og:title" content="Arize Consulting — AI Readiness Assessment">
+  <meta property="og:description" content="Ontdek in 90 minuten waar AI uw bedrijf concreet tijd en geld bespaart.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#2B3044',
+            'navy-light': '#3d4259',
+            gold: '#D4993D',
+            'gold-dark': '#b8832f',
+            'warm-grey': '#F8F7F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans text-navy antialiased bg-white">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#" class="text-xl md:text-2xl font-extrabold tracking-tight text-navy">
+          ARIZE
+        </a>
+        <!-- Desktop nav -->
+        <div class="flex items-center gap-8">
+          <a href="#over-jan" class="hidden md:inline-block text-sm font-medium text-navy/70 hover:text-navy transition-colors">Over Jan</a>
+          <a href="#contact" class="hidden md:inline-block text-sm font-medium text-navy/70 hover:text-navy transition-colors">Contact</a>
+          <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-gold hover:bg-gold-dark text-white text-sm font-semibold rounded-lg transition-colors">
+            Neem contact op
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="min-h-[90vh] flex items-center pt-20 md:pt-0">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Uw concurrenten gebruiken al AI.
+          <span class="text-gold">U nog niet.</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-navy/70 max-w-2xl leading-relaxed">
+          Ontdek in 90 minuten waar AI uw bedrijf concreet tijd en geld bespaart. Geen vaag rapport, maar een helder actieplan.
+        </p>
+        <div class="mt-10">
+          <a href="#contact" class="inline-flex items-center px-8 py-4 bg-gold hover:bg-gold-dark text-white text-lg font-semibold rounded-lg transition-colors">
+            Neem contact op
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="bg-warm-grey fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Herkenbaar?</h2>
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <!-- Pain 1 -->
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Data overtypen</h3>
+            <p class="mt-1 text-navy/60 leading-relaxed">Uw team kopieert data van het ene systeem naar het andere &mdash; elke dag opnieuw.</p>
+          </div>
+        </div>
+        <!-- Pain 2 -->
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Geen idee waar te beginnen</h3>
+            <p class="mt-1 text-navy/60 leading-relaxed">Iedereen praat over AI, maar niemand weet wat het concreet voor uw bedrijf kan doen.</p>
+          </div>
+        </div>
+        <!-- Pain 3 -->
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Tools die stof verzamelen</h3>
+            <p class="mt-1 text-navy/60 leading-relaxed">U investeert in software en tools die niemand echt gebruikt. Duur en frustrerend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment -->
+  <section class="fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">De AI Readiness Assessment</h2>
+      <p class="mt-4 text-lg text-navy/70 max-w-2xl leading-relaxed">
+        Een gestructureerde doorlichting van uw bedrijf, specifiek gericht op waar AI concreet waarde toevoegt. Geen maturity scan met een mooie grafiek &mdash; maar een actieplan dat u morgen kunt gebruiken.
+      </p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2">
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold">3&ndash;5 concrete AI-kansen</h3>
+            <p class="mt-1 text-sm text-navy/60">Gerankt op impact en haalbaarheid voor uw bedrijf.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold">1 quick win</h3>
+            <p class="mt-1 text-sm text-navy/60">Eén actie die u binnen 30 dagen kunt uitvoeren.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold">1 waarschuwing</h3>
+            <p class="mt-1 text-sm text-navy/60">Specifiek voor uw situatie: waar u beter niet mee start.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-semibold">Een helder actieplan</h3>
+            <p class="mt-1 text-sm text-navy/60">Geen vaag rapport, maar een geprioriteerde roadmap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="bg-warm-grey fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Hoe het werkt</h2>
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center text-xl font-bold">1</div>
+          <h3 class="mt-5 text-xl font-semibold">Gesprek</h3>
+          <p class="mt-2 text-navy/60 leading-relaxed">
+            Een sessie van 90 minuten &mdash; bij u op kantoor of remote. We lopen uw processen, tools en team door.
+          </p>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center text-xl font-bold">2</div>
+          <h3 class="mt-5 text-xl font-semibold">Analyse</h3>
+          <p class="mt-2 text-navy/60 leading-relaxed">
+            Ik verwerk de inzichten tot een concreet rapport met geprioriteerde kansen, afgestemd op uw bedrijf.
+          </p>
+        </div>
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center text-xl font-bold">3</div>
+          <h3 class="mt-5 text-xl font-semibold">Actieplan</h3>
+          <p class="mt-2 text-navy/60 leading-relaxed">
+            Een debrief van 30 minuten. We lopen de resultaten door en bepalen uw eerste concrete stap.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Over Jan -->
+  <section id="over-jan" class="fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="grid gap-12 md:grid-cols-5 items-center">
+        <!-- Photo placeholder -->
+        <div class="md:col-span-2">
+          <div class="aspect-[4/5] rounded-2xl bg-navy/5 flex items-center justify-center">
+            <span class="text-navy/30 text-sm">Foto Jan</span>
+          </div>
+        </div>
+        <!-- Bio -->
+        <div class="md:col-span-3">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Over Jan</h2>
+          <div class="mt-6 space-y-4 text-lg text-navy/70 leading-relaxed">
+            <p>
+              Ik ben Jan Vaes. Ik leid de AI-adoptie bij een HR Tech bedrijf met 100+ medewerkers. Ik implementeer AI-workflows bij hun dochterbedrijf. Ik geef workshops over tools als Gemini en NotebookLM. En ik bouw AI-chatbots voor klanten.
+            </p>
+            <p>
+              Ik vertel bedrijven niet wat AI theoretisch zou kunnen. Ik laat zien wat het concreet doet &mdash; omdat ik het elke dag zelf doe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-warm-grey fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Laten we praten</h2>
+        <p class="mt-4 text-lg text-navy/70">
+          Vul het formulier in en ik neem binnen 24 uur contact op.
+        </p>
+      </div>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="mt-12 max-w-xl mx-auto space-y-5">
+        <div>
+          <label for="naam" class="block text-sm font-medium text-navy/80 mb-1.5">Naam *</label>
+          <input type="text" id="naam" name="naam" required
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            placeholder="Uw naam">
+        </div>
+        <div>
+          <label for="bedrijf" class="block text-sm font-medium text-navy/80 mb-1.5">Bedrijf *</label>
+          <input type="text" id="bedrijf" name="bedrijf" required
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            placeholder="Bedrijfsnaam">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-navy/80 mb-1.5">E-mail *</label>
+          <input type="email" id="email" name="email" required
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            placeholder="uw@email.be">
+        </div>
+        <div>
+          <label for="telefoon" class="block text-sm font-medium text-navy/80 mb-1.5">Telefoon</label>
+          <input type="tel" id="telefoon" name="telefoon"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            placeholder="+32 ...">
+        </div>
+        <div>
+          <label for="bericht" class="block text-sm font-medium text-navy/80 mb-1.5">Bericht</label>
+          <textarea id="bericht" name="bericht" rows="3"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-y"
+            placeholder="Vertel kort wat u bezighoudt (optioneel)"></textarea>
+        </div>
+        <div class="pt-2">
+          <button type="submit"
+            class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gold hover:bg-gold-dark text-white text-lg font-semibold rounded-lg transition-colors">
+            Verstuur
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy text-white/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <span class="text-xl font-extrabold text-white tracking-tight">ARIZE</span>
+          <span class="text-sm">Consulting</span>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-2 text-sm">
+          <div class="flex items-center gap-4">
+            <a href="mailto:jan@arizeconsulting.be" class="hover:text-white transition-colors">jan@arizeconsulting.be</a>
+            <span class="text-white/20">|</span>
+            <a href="https://linkedin.com/in/janvaes" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+          </div>
+          <p>BTW: BE 0XXX.XXX.XXX</p>
+          <p>&copy; 2026 Arize Consulting</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll animations -->
+  <script>
+    // Navbar background on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+      } else {
+        navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+      }
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
