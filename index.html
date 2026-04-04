@@ -11,9 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Dark mode init: runs before CSS loads to prevent flash of wrong theme -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -42,7 +53,7 @@
     }
   </style>
 </head>
-<body class="font-sans text-navy antialiased bg-white">
+<body class="font-sans text-navy antialiased bg-white dark:bg-gray-900 dark:text-gray-100">
 
   <!-- Navigation -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -50,11 +61,24 @@
       <div class="flex items-center justify-between h-16 md:h-20">
         <!-- Logo -->
         <a href="#" class="block">
-          <img src="images/Arize.svg" alt="Arize Consulting" class="h-14 md:h-16 w-auto">
+          <img src="images/Arize.svg" alt="Arize Consulting" class="h-14 md:h-16 w-auto dark:brightness-0 dark:invert">
         </a>
         <!-- Desktop nav -->
-        <div class="flex items-center gap-8">
-          <a href="#over-jan" class="hidden md:inline-block text-sm font-medium text-navy/70 hover:text-navy transition-colors">Over Jan</a>
+        <div class="flex items-center gap-4 md:gap-8">
+          <a href="#over-jan" class="hidden md:inline-block text-sm font-medium text-navy/70 hover:text-navy dark:text-gray-400 dark:hover:text-gray-100 transition-colors">Over Jan</a>
+          <!-- Dark mode toggle button -->
+          <button id="theme-toggle" onclick="toggleDarkMode()"
+            class="p-2 rounded-lg text-navy/60 hover:text-navy hover:bg-navy/5 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-white/10 transition-colors"
+            aria-label="Schakel donkere modus in of uit">
+            <!-- Moon icon (shown in light mode) -->
+            <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <!-- Sun icon (shown in dark mode) -->
+            <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </button>
           <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-gold hover:bg-gold-dark text-white text-sm font-semibold rounded-lg transition-colors">
             Neem contact op
           </a>
@@ -71,7 +95,7 @@
           Je concurrenten gebruiken al AI.
           <span class="text-gold">Jij nog niet.</span>
         </h1>
-        <p class="mt-6 text-lg md:text-xl text-navy/70 max-w-2xl leading-relaxed">
+        <p class="mt-6 text-lg md:text-xl text-navy/70 dark:text-gray-300 max-w-2xl leading-relaxed">
           Ontdek in 90 minuten waar AI je bedrijf concreet tijd en geld bespaart. Geen vaag rapport, maar een helder actieplan.
         </p>
         <div class="mt-10">
@@ -85,39 +109,39 @@
   </section>
 
   <!-- Problem -->
-  <section class="bg-warm-grey fade-in">
+  <section class="bg-warm-grey dark:bg-gray-800 fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Herkenbaar?</h2>
-      <p class="mt-4 text-lg text-gray-500 max-w-xl">Dan verlies je elke week uren aan werk dat AI al voor je kan doen.</p>
+      <p class="mt-4 text-lg text-gray-500 dark:text-gray-400 max-w-xl">Dan verlies je elke week uren aan werk dat AI al voor je kan doen.</p>
       <div class="mt-12 grid gap-8 md:grid-cols-3">
         <!-- Pain 1 -->
         <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 dark:bg-white/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
           </div>
           <div>
             <h3 class="font-semibold text-lg">Data overtypen</h3>
-            <p class="mt-1 text-navy/60 leading-relaxed">Je team kopieert data van het ene systeem naar het andere, elke dag opnieuw.</p>
+            <p class="mt-1 text-navy/60 dark:text-gray-400 leading-relaxed">Je team kopieert data van het ene systeem naar het andere, elke dag opnieuw.</p>
           </div>
         </div>
         <!-- Pain 2 -->
         <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 dark:bg-white/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01"/></svg>
           </div>
           <div>
             <h3 class="font-semibold text-lg">Geen idee waar te beginnen</h3>
-            <p class="mt-1 text-navy/60 leading-relaxed">Iedereen praat over AI, maar niemand weet wat het concreet voor je bedrijf kan doen.</p>
+            <p class="mt-1 text-navy/60 dark:text-gray-400 leading-relaxed">Iedereen praat over AI, maar niemand weet wat het concreet voor je bedrijf kan doen.</p>
           </div>
         </div>
         <!-- Pain 3 -->
         <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-navy/5 dark:bg-white/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>
           </div>
           <div>
             <h3 class="font-semibold text-lg">Tools die stof verzamelen</h3>
-            <p class="mt-1 text-navy/60 leading-relaxed">Je investeert in software en tools die niemand echt gebruikt. Duur en frustrerend.</p>
+            <p class="mt-1 text-navy/60 dark:text-gray-400 leading-relaxed">Je investeert in software en tools die niemand echt gebruikt. Duur en frustrerend.</p>
           </div>
         </div>
       </div>
@@ -128,45 +152,45 @@
   <section class="fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight">De AI Readiness Assessment</h2>
-      <p class="mt-4 text-lg text-navy/70 max-w-2xl leading-relaxed">
+      <p class="mt-4 text-lg text-navy/70 dark:text-gray-300 max-w-2xl leading-relaxed">
         Een gestructureerde doorlichting van je bedrijf, specifiek gericht op waar AI concreet waarde toevoegt. Geen maturity scan met een mooie grafiek, maar een actieplan dat je morgen kunt gebruiken.
       </p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2">
-        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey dark:bg-gray-800">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </div>
           <div>
             <h3 class="font-semibold">3 tot 5 concrete AI-kansen</h3>
-            <p class="mt-1 text-sm text-navy/60">Gerankt op impact en haalbaarheid voor je bedrijf.</p>
+            <p class="mt-1 text-sm text-navy/60 dark:text-gray-400">Gerankt op impact en haalbaarheid voor je bedrijf.</p>
           </div>
         </div>
-        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey dark:bg-gray-800">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <div>
             <h3 class="font-semibold">1 quick win</h3>
-            <p class="mt-1 text-sm text-navy/60">Eén actie die je binnen 30 dagen kunt uitvoeren.</p>
+            <p class="mt-1 text-sm text-navy/60 dark:text-gray-400">Eén actie die je binnen 30 dagen kunt uitvoeren.</p>
           </div>
         </div>
-        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey border border-gold/40">
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey dark:bg-gray-800 border border-gold/40">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
           </div>
           <div>
             <p class="text-xs font-semibold text-gold mb-1">Uniek:</p>
             <h3 class="font-semibold">1 waarschuwing</h3>
-            <p class="mt-1 text-sm text-navy/60">Specifiek voor jouw situatie: waar je beter niet mee start.</p>
+            <p class="mt-1 text-sm text-navy/60 dark:text-gray-400">Specifiek voor jouw situatie: waar je beter niet mee start.</p>
           </div>
         </div>
-        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey dark:bg-gray-800">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
           <div>
             <h3 class="font-semibold">Een helder actieplan</h3>
-            <p class="mt-1 text-sm text-navy/60">Geen vaag rapport, maar een geprioriteerde roadmap.</p>
+            <p class="mt-1 text-sm text-navy/60 dark:text-gray-400">Geen vaag rapport, maar een geprioriteerde roadmap.</p>
           </div>
         </div>
       </div>
@@ -174,7 +198,7 @@
   </section>
 
   <!-- How It Works -->
-  <section class="bg-warm-grey fade-in">
+  <section class="bg-warm-grey dark:bg-gray-800 fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Hoe het werkt</h2>
       <div class="mt-12 grid gap-8 md:grid-cols-3">
@@ -182,7 +206,7 @@
         <div class="relative">
           <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center text-xl font-bold">1</div>
           <h3 class="mt-5 text-xl font-semibold">Gesprek</h3>
-          <p class="mt-2 text-navy/60 leading-relaxed">
+          <p class="mt-2 text-navy/60 dark:text-gray-400 leading-relaxed">
             Een sessie van 90 minuten, bij je op kantoor of remote. We lopen je processen, tools en team door.
           </p>
         </div>
@@ -190,7 +214,7 @@
         <div class="relative">
           <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center text-xl font-bold">2</div>
           <h3 class="mt-5 text-xl font-semibold">Analyse</h3>
-          <p class="mt-2 text-navy/60 leading-relaxed">
+          <p class="mt-2 text-navy/60 dark:text-gray-400 leading-relaxed">
             Ik verwerk de inzichten tot een concreet rapport met geprioriteerde kansen, afgestemd op je bedrijf.
           </p>
         </div>
@@ -198,7 +222,7 @@
         <div class="relative">
           <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center text-xl font-bold">3</div>
           <h3 class="mt-5 text-xl font-semibold">Actieplan</h3>
-          <p class="mt-2 text-navy/60 leading-relaxed">
+          <p class="mt-2 text-navy/60 dark:text-gray-400 leading-relaxed">
             Een debrief van 30 minuten. We lopen de resultaten door en bepalen je eerste concrete stap.
           </p>
         </div>
@@ -217,7 +241,7 @@
         <!-- Bio -->
         <div class="md:col-span-3">
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Over Jan</h2>
-          <div class="mt-4 space-y-4 text-lg text-navy/70 leading-relaxed">
+          <div class="mt-4 space-y-4 text-lg text-navy/70 dark:text-gray-300 leading-relaxed">
             <p>
               Mijn hele carrière draait om systemen die werken. Als developer, meer dan tien jaar als team lead, en sinds 2024 als COO. Vandaag leid ik de AI-adoptie bij een HR Tech bedrijf met 100+ medewerkers, geef ik AI-workshops, en bouw ik chatbots voor klanten. Ik werk met alle grote AI-platformen en kies altijd de beste tool voor de job.
             </p>
@@ -231,55 +255,55 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-warm-grey fade-in">
+  <section id="contact" class="bg-warm-grey dark:bg-gray-800 fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Plan je AI Readiness Assessment</h2>
-        <p class="mt-4 text-lg text-navy/70">
+        <p class="mt-4 text-lg text-navy/70 dark:text-gray-300">
           Vul het formulier in en ik neem binnen 24 uur contact op.
         </p>
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
           Geen verplichtingen. Bij je op kantoor of remote, jij kiest.
         </p>
       </div>
-      <div class="mt-8 max-w-xl mx-auto bg-amber-50 border-l-[3px] border-gold p-4 rounded-r-lg">
-        <p class="text-sm text-gray-600 italic">
+      <div class="mt-8 max-w-xl mx-auto bg-amber-50 dark:bg-amber-950/30 border-l-[3px] border-gold p-4 rounded-r-lg">
+        <p class="text-sm text-gray-600 dark:text-gray-300 italic">
           Een logistiek bedrijf uit Hasselt ontdekte 3 concrete automatiseringen na één sessie van 90 minuten.
         </p>
-        <p class="mt-2 text-xs text-gray-400">Geanonimiseerd op verzoek van de klant</p>
+        <p class="mt-2 text-xs text-gray-400 dark:text-gray-500">Geanonimiseerd op verzoek van de klant</p>
       </div>
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-8 max-w-xl mx-auto space-y-5">
         <p class="hidden">
-          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
         </p>
         <div>
-          <label for="naam" class="block text-sm font-medium text-navy/80 mb-1.5">Naam *</label>
+          <label for="naam" class="block text-sm font-medium text-navy/80 dark:text-gray-300 mb-1.5">Naam *</label>
           <input type="text" id="naam" name="naam" required
-            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 dark:border-white/15 bg-white dark:bg-gray-700 text-navy dark:text-gray-100 placeholder-navy/30 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
             placeholder="Je naam">
         </div>
         <div>
-          <label for="bedrijf" class="block text-sm font-medium text-navy/80 mb-1.5">Bedrijf *</label>
+          <label for="bedrijf" class="block text-sm font-medium text-navy/80 dark:text-gray-300 mb-1.5">Bedrijf *</label>
           <input type="text" id="bedrijf" name="bedrijf" required
-            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 dark:border-white/15 bg-white dark:bg-gray-700 text-navy dark:text-gray-100 placeholder-navy/30 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
             placeholder="Bedrijfsnaam">
         </div>
         <div>
-          <label for="email" class="block text-sm font-medium text-navy/80 mb-1.5">E-mail *</label>
+          <label for="email" class="block text-sm font-medium text-navy/80 dark:text-gray-300 mb-1.5">E-mail *</label>
           <input type="email" id="email" name="email" required
-            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 dark:border-white/15 bg-white dark:bg-gray-700 text-navy dark:text-gray-100 placeholder-navy/30 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
             placeholder="je@email.be">
         </div>
         <div>
-          <label for="telefoon" class="block text-sm font-medium text-navy/80 mb-1.5">Telefoon</label>
+          <label for="telefoon" class="block text-sm font-medium text-navy/80 dark:text-gray-300 mb-1.5">Telefoon</label>
           <input type="tel" id="telefoon" name="telefoon"
-            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 dark:border-white/15 bg-white dark:bg-gray-700 text-navy dark:text-gray-100 placeholder-navy/30 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
             placeholder="+32 ...">
         </div>
         <div>
-          <label for="bericht" class="block text-sm font-medium text-navy/80 mb-1.5">Bericht *</label>
+          <label for="bericht" class="block text-sm font-medium text-navy/80 dark:text-gray-300 mb-1.5">Bericht *</label>
           <textarea id="bericht" name="bericht" rows="3" required
-            class="w-full px-4 py-3 rounded-lg border border-navy/15 bg-white text-navy placeholder-navy/30 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-y"
+            class="w-full px-4 py-3 rounded-lg border border-navy/15 dark:border-white/15 bg-white dark:bg-gray-700 text-navy dark:text-gray-100 placeholder-navy/30 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-y"
             placeholder="Vertel kort wat je bezighoudt"></textarea>
         </div>
         <div class="pt-2">
@@ -309,21 +333,75 @@
     </div>
   </footer>
 
-  <!-- Scroll animations -->
+  <!-- Scroll animations & dark mode logic -->
   <script>
-    // Navbar background on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+    // Dark mode toggle
+    function toggleDarkMode() {
+      var isDarkMode = document.documentElement.classList.contains('dark');
+      if (isDarkMode) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
       } else {
-        navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateThemeToggle();
+      updateNavbarBg();
+    }
+
+    function updateThemeToggle() {
+      var isDarkMode = document.documentElement.classList.contains('dark');
+      var sunIcon = document.getElementById('sun-icon');
+      var moonIcon = document.getElementById('moon-icon');
+      if (sunIcon && moonIcon) {
+        if (isDarkMode) {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        } else {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        }
+      }
+    }
+
+    // Initialize toggle icon on page load
+    updateThemeToggle();
+
+    // Listen for system theme changes (only when no manual preference is saved)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        updateThemeToggle();
+        updateNavbarBg();
       }
     });
 
+    // Navbar background on scroll (dark-mode-aware)
+    var navbar = document.getElementById('navbar');
+    function updateNavbarBg() {
+      if (window.scrollY > 20) {
+        var isDarkMode = document.documentElement.classList.contains('dark');
+        if (isDarkMode) {
+          navbar.classList.add('bg-gray-900/90', 'backdrop-blur-md', 'shadow-sm');
+          navbar.classList.remove('bg-white/90');
+        } else {
+          navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+          navbar.classList.remove('bg-gray-900/90');
+        }
+      } else {
+        navbar.classList.remove('bg-white/90', 'bg-gray-900/90', 'backdrop-blur-md', 'shadow-sm');
+      }
+    }
+
+    window.addEventListener('scroll', updateNavbarBg);
+
     // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
@@ -333,7 +411,7 @@
       rootMargin: '0px 0px -50px 0px'
     });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
