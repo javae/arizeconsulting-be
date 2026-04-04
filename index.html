@@ -337,7 +337,7 @@
   <script>
     // Dark mode toggle
     function toggleDarkMode() {
-      var isDarkMode = document.documentElement.classList.contains('dark');
+      const isDarkMode = document.documentElement.classList.contains('dark');
       if (isDarkMode) {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
@@ -350,9 +350,9 @@
     }
 
     function updateThemeToggle() {
-      var isDarkMode = document.documentElement.classList.contains('dark');
-      var sunIcon = document.getElementById('sun-icon');
-      var moonIcon = document.getElementById('moon-icon');
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
       if (sunIcon && moonIcon) {
         if (isDarkMode) {
           sunIcon.classList.remove('hidden');
@@ -381,10 +381,10 @@
     });
 
     // Navbar background on scroll (dark-mode-aware)
-    var navbar = document.getElementById('navbar');
+    const navbar = document.getElementById('navbar');
     function updateNavbarBg() {
       if (window.scrollY > 20) {
-        var isDarkMode = document.documentElement.classList.contains('dark');
+        const isDarkMode = document.documentElement.classList.contains('dark');
         if (isDarkMode) {
           navbar.classList.add('bg-gray-900/90', 'backdrop-blur-md', 'shadow-sm');
           navbar.classList.remove('bg-white/90');
@@ -400,8 +400,8 @@
     window.addEventListener('scroll', updateNavbarBg);
 
     // Fade-in on scroll
-    var observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
@@ -411,7 +411,7 @@
       rootMargin: '0px 0px -50px 0px'
     });
 
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
