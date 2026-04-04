@@ -55,7 +55,6 @@
         <!-- Desktop nav -->
         <div class="flex items-center gap-8">
           <a href="#over-jan" class="hidden md:inline-block text-sm font-medium text-navy/70 hover:text-navy transition-colors">Over Jan</a>
-          <a href="#contact" class="hidden md:inline-block text-sm font-medium text-navy/70 hover:text-navy transition-colors">Contact</a>
           <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-gold hover:bg-gold-dark text-white text-sm font-semibold rounded-lg transition-colors">
             Neem contact op
           </a>
@@ -65,10 +64,10 @@
   </nav>
 
   <!-- Hero -->
-  <section class="min-h-[90vh] flex items-center pt-20 md:pt-0">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+  <section class="pt-28 md:pt-36 pb-16 md:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
           Uw concurrenten gebruiken al AI.
           <span class="text-gold">U nog niet.</span>
         </h1>
@@ -89,6 +88,7 @@
   <section class="bg-warm-grey fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Herkenbaar?</h2>
+      <p class="mt-4 text-lg text-gray-500 max-w-xl">Dan verliest u elke week uren aan werk dat AI al voor u kan doen.</p>
       <div class="mt-12 grid gap-8 md:grid-cols-3">
         <!-- Pain 1 -->
         <div class="flex gap-4">
@@ -150,11 +150,12 @@
             <p class="mt-1 text-sm text-navy/60">Eén actie die u binnen 30 dagen kunt uitvoeren.</p>
           </div>
         </div>
-        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey">
+        <div class="flex items-start gap-4 p-6 rounded-xl bg-warm-grey border border-gold/40">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
           </div>
           <div>
+            <p class="text-xs font-semibold text-gold mb-1">Uniek:</p>
             <h3 class="font-semibold">1 waarschuwing</h3>
             <p class="mt-1 text-sm text-navy/60">Specifiek voor uw situatie: waar u beter niet mee start.</p>
           </div>
@@ -208,7 +209,7 @@
   <!-- Over Jan -->
   <section id="over-jan" class="fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-      <div class="grid gap-12 md:grid-cols-5 items-center">
+      <div class="grid gap-8 md:gap-12 md:grid-cols-5 items-center">
         <!-- Photo placeholder -->
         <div class="md:col-span-2">
           <img src="logo/jan.jpg" alt="Jan Vaes" class="aspect-[4/5] rounded-2xl object-cover w-full">
@@ -216,7 +217,7 @@
         <!-- Bio -->
         <div class="md:col-span-3">
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Over Jan</h2>
-          <div class="mt-6 space-y-4 text-lg text-navy/70 leading-relaxed">
+          <div class="mt-4 space-y-4 text-lg text-navy/70 leading-relaxed">
             <p>
               Mijn hele carrière draait om systemen die werken. Als developer, meer dan tien jaar als team lead, en sinds 2024 als COO. Vandaag leid ik de AI-adoptie bij een HR Tech bedrijf met 100+ medewerkers, geef ik AI-workshops, en bouw ik chatbots voor klanten. Ik werk met alle grote AI-platformen en kies altijd de beste tool voor de job.
             </p>
@@ -233,12 +234,21 @@
   <section id="contact" class="bg-warm-grey fade-in">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Laten we praten</h2>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Plan uw AI Readiness Assessment</h2>
         <p class="mt-4 text-lg text-navy/70">
           Vul het formulier in en ik neem binnen 24 uur contact op.
         </p>
+        <p class="mt-2 text-sm text-gray-500">
+          Geen verplichtingen. Langs bij u op kantoor of remote, uw keuze.
+        </p>
       </div>
-      <form name="contact" method="POST" data-netlify="true" class="mt-12 max-w-xl mx-auto space-y-5">
+      <div class="mt-8 max-w-xl mx-auto bg-amber-50 border-l-[3px] border-gold p-4 rounded-r-lg">
+        <p class="text-sm text-gray-600 italic">
+          Een logistiek bedrijf uit Hasselt ontdekte 3 concrete automatiseringen na één sessie van 90 minuten.
+        </p>
+        <p class="mt-2 text-xs text-gray-400">Geanonimiseerd op verzoek van de klant</p>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" class="mt-8 max-w-xl mx-auto space-y-5">
         <div>
           <label for="naam" class="block text-sm font-medium text-navy/80 mb-1.5">Naam *</label>
           <input type="text" id="naam" name="naam" required
