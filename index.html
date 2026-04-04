@@ -69,7 +69,7 @@
           <!-- Dark mode toggle button -->
           <button id="theme-toggle" onclick="toggleDarkMode()"
             class="p-2 rounded-lg text-navy/60 hover:text-navy hover:bg-navy/5 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-white/10 transition-colors"
-            aria-label="Schakel donkere modus in of uit">
+            aria-label="Schakel naar donkere modus">
             <!-- Moon icon (shown in light mode) -->
             <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
@@ -266,7 +266,7 @@
           Geen verplichtingen. Bij je op kantoor of remote, jij kiest.
         </p>
       </div>
-      <div class="mt-8 max-w-xl mx-auto bg-amber-50 dark:bg-amber-950/30 border-l-[3px] border-gold p-4 rounded-r-lg">
+      <div class="mt-8 max-w-xl mx-auto bg-amber-50 dark:bg-amber-900/20 border-l-[3px] border-gold p-4 rounded-r-lg">
         <p class="text-sm text-gray-600 dark:text-gray-300 italic">
           Een logistiek bedrijf uit Hasselt ontdekte 3 concrete automatiseringen na één sessie van 90 minuten.
         </p>
@@ -353,6 +353,7 @@
       const isDarkMode = document.documentElement.classList.contains('dark');
       const sunIcon = document.getElementById('sun-icon');
       const moonIcon = document.getElementById('moon-icon');
+      const toggle = document.getElementById('theme-toggle');
       if (sunIcon && moonIcon) {
         if (isDarkMode) {
           sunIcon.classList.remove('hidden');
@@ -361,6 +362,9 @@
           sunIcon.classList.add('hidden');
           moonIcon.classList.remove('hidden');
         }
+      }
+      if (toggle) {
+        toggle.setAttribute('aria-label', isDarkMode ? 'Schakel naar lichte modus' : 'Schakel naar donkere modus');
       }
     }
 
