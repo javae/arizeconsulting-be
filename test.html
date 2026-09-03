@@ -1,11 +1,81 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow">
 	<title>Chatbot Test</title>
+	<style>
+		body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+		#gate {
+			position: fixed; inset: 0; z-index: 2147483647;
+			display: flex; align-items: center; justify-content: center;
+			background: #f9fafb;
+		}
+		#gate form { text-align: center; }
+		#gate label { display: block; margin-bottom: 1rem; color: #4b5563; font-size: 0.95rem; }
+		#gate input {
+			width: 8rem; padding: 0.6rem; font-size: 1.4rem; text-align: center;
+			letter-spacing: 0.4rem; border: 1px solid #d1d5db; border-radius: 6px;
+		}
+		#gate input:focus { outline: 2px solid #2c4bff; outline-offset: 1px; }
+		#gate p { min-height: 1.2rem; margin: 0.75rem 0 0; color: #b91c1c; font-size: 0.85rem; }
+	</style>
 </head>
 <body>
-	<script id="chatbotkit-widget" src="https://static.chatbotkit.com/integrations/widget/v2.js" data-widget="cmsvj6p95000d04jlhuwi08kq"></script>
+	<div id="gate">
+		<form>
+			<label for="pin">Pincode</label>
+			<input id="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="8" autofocus>
+			<p id="gate-error"></p>
+		</form>
+	</div>
+
+	<script>
+		// SHA-256 van de pincode. Nieuwe code zetten? Draai in een terminal:
+		//   python3 -c "import hashlib;print(hashlib.sha256(b'1234').hexdigest())"
+		// en plak het resultaat hieronder.
+		const PIN_HASH = 'fb1f68f12a253d6d0cbea0c94961aad9223edcf76ee5b10d393b282d8fbfe369'
+		const WIDGET_ID = 'cmsvj6p95000d04jlhuwi08kq'
+		const UNLOCKED_KEY = 'chatbot-test-unlocked'
+
+		const gate = document.getElementById('gate')
+		const input = document.getElementById('pin')
+		const error = document.getElementById('gate-error')
+
+		function loadWidget() {
+			gate.remove()
+			const script = document.createElement('script')
+			script.src = 'https://static.chatbotkit.com/integrations/widget/v2.js'
+			script.dataset.widget = WIDGET_ID
+			document.body.appendChild(script)
+		}
+
+		async function hash(value) {
+			const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))
+			return [...new Uint8Array(bytes)].map(b => b.toString(16).padStart(2, '0')).join('')
+		}
+
+		async function check(value) {
+			if (await hash(value) !== PIN_HASH) {
+				error.textContent = 'Onjuiste pincode'
+				input.value = ''
+				input.focus()
+				return
+			}
+			try { sessionStorage.setItem(UNLOCKED_KEY, 'true') } catch {}
+			loadWidget()
+		}
+
+		gate.querySelector('form').addEventListener('submit', event => {
+			event.preventDefault()
+			error.textContent = ''
+			check(input.value.trim())
+		})
+
+		try {
+			if (sessionStorage.getItem(UNLOCKED_KEY) === 'true') loadWidget()
+		} catch {}
+	</script>
 </body>
 </html>
